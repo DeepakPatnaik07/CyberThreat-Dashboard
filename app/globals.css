@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+
+    --success: 142.1 70.6% 45.3%;
+    --success-foreground: 144.9 80.4% 10%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar specific variables */
+    --sidebar-width: 16rem;
+    --sidebar-width-icon: 4rem;
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 262.1 83.3% 57.8%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 262.1 83.3% 57.8%;
+
+    --criticality-low: 142.1 76.2% 36.3%;
+    --criticality-medium: 38.4 92% 50%;
+    --criticality-high: 0 84.2% 60.2%;
+    --criticality-critical: 0 72.2% 50.5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Cyber theme specific styles */
+.cyber-gradient {
+  @apply bg-gradient-to-r from-purple-600 via-purple-500 to-purple-700;
+}
+
+.cyber-glow {
+  text-shadow: 0 0 5px theme("colors.purple.400"), 0 0 10px theme("colors.purple.500");
+}
+
+.cyber-border {
+  @apply border border-purple-500/50 shadow-[0_0_5px_theme(colors.purple.500)];
+}
+
+.success-glow {
+  box-shadow: 0 0 5px theme("colors.green.400"), 0 0 10px theme("colors.green.500");
+}
+
+.warning-glow {
+  box-shadow: 0 0 5px theme("colors.yellow.400"), 0 0 10px theme("colors.yellow.500");
+}
+
+.danger-glow {
+  box-shadow: 0 0 5px theme("colors.red.400"), 0 0 10px theme("colors.red.500");
+}
+
+.critical-glow {
+  box-shadow: 0 0 5px theme("colors.red.500"), 0 0 15px theme("colors.red.600");
+}
+
+/* Animated background for cards */
+.cyber-card {
+  @apply relative overflow-hidden border border-purple-500/20 bg-black/40 backdrop-blur-sm;
+}
+
+.cyber-card::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-30;
+  mask-image: linear-gradient(black, transparent);
+}
+
+.cyber-card:hover::before {
+  @apply opacity-50 transition-opacity duration-300;
+}
+
+/* Skeleton loading animation */
+.skeleton-pulse {
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}

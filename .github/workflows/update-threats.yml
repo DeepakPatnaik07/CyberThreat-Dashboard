@@ -1,0 +1,17 @@
+name: Update Threat Data
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
+  workflow_dispatch:      # Allow manual triggers
+
+jobs:
+  update-threats:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Trigger threat data update
+        run: |
+          curl -X POST ${{ secrets.VERCEL_DEPLOYMENT_URL }}/api/threats
+        env:
+          VERCEL_DEPLOYMENT_URL: ${{ secrets.VERCEL_DEPLOYMENT_URL }} 
