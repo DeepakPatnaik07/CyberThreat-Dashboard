@@ -69,7 +69,6 @@ Navigate through the sidebar to access different sections:
 - **Threat Feed:** Detailed list of recent threats.
 - **CVE Details:** Search for specific CVE information (if implemented).
 - **Mitigation:** Generate mitigation plans for specific CVEs.
-- **Settings:** Configure application settings.
 
 ## Contributing
 
